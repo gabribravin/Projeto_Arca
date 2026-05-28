@@ -12,8 +12,8 @@
             padding: 0 4%;
         }
         .secao-titulo {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 800;
             margin-bottom: 30px;
             color: #000000;
         }
@@ -60,7 +60,7 @@
             border: 1px solid var(--borda-card);
             font-size: 14px;
             font-weight: 500;
-            color: rgba(0, 0, 0, 0.5); /* Texto dos filtros meio transparente */
+            color: rgba(0, 0, 0, 0.5); /* 0.5 define que o texto fica 50% transparente */
         }
         .ordenacao-wrapper {
             display: flex;
@@ -75,6 +75,29 @@
             border: none;
             font-size: 12px;
             color: rgba(0, 0, 0, 0.5); /* Texto meio transparente */
+        }
+        .btn-toggle-filtros {
+            display: none; /* Escondido no desktop */
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--branco);
+            padding: 14px 20px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 15px;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        .seta-filtro {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        .filtros-expansivel {
+            transition: max-height 0.4s ease-out, opacity 0.3s ease;
+            overflow: hidden;
         }
         .paginacao {
             display: flex;
@@ -96,6 +119,25 @@
         .paginacao button.active {
             background-color: #b0bec5;
         }
+        @media (max-width: 768px) {
+            .btn-toggle-filtros {
+                display: flex; /* Mostra o botão no mobile */
+            }
+            .filtros-expansivel {
+                max-height: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .barra-filtros-container.active .filtros-expansivel {
+                max-height: 1000px; /* Expande ao clicar */
+                opacity: 1;
+                pointer-events: auto;
+                padding-top: 20px;
+            }
+            .barra-filtros-container.active .seta-filtro {
+                transform: rotate(180deg);
+            }
+        }
         @media (max-width: 900px) {
             .grid-filtros-selects {
                 grid-template-columns: repeat(2, 1fr);
@@ -106,7 +148,7 @@
                 grid-template-columns: 1fr;
             }
             .secao-titulo {
-                font-size: 20px;
+                font-size: 32px;
                 text-align: center;
             }
         }
@@ -117,6 +159,13 @@
     <div class="barra-prefeitura">
         <div class="logo-prefeitura-topo">
             <img src="./imagens/prefeitura-arca-serra.png" alt="Logo Prefeitura da Serra">
+        </div>
+        <div class="nav-institucional-links">
+            <a href="#"><span>1</span> Conteúdo</a>
+            <a href="#"><span>2</span> Menu</a>
+            <a href="#"><span>3</span> Busca</a>
+            <a href="#"><span>4</span> Contraste</a>
+            <a href="#"><span>5</span> Acessibilidade</a>
         </div>
     </div>
 
@@ -152,67 +201,74 @@
                 <input type="text" placeholder="Buscar">
             </div>
 
-            <div class="grid-filtros-selects">
-                <div class="filtro-item">
-                    <label>Espécie</label>
-                    <select>
-                        <option value="">Sem preferência</option>
-                        <option value="gato">Gato</option>
-                        <option value="cachorro">Cachorro</option>
-                    </select>
-                </div>
-                <div class="filtro-item">
-                    <label>Sexo</label>
-                    <select>
-                        <option value="">Sem preferência</option>
-                        <option value="feminino">Feminino</option>
-                        <option value="masculino">Masculino</option>
-                    </select>
-                </div>
-                <div class="filtro-item">
-                    <label>Porte</label>
-                    <select>
-                        <option value="">Sem preferência</option>
-                        <option value="minusculo">Minúsculo</option>
-                        <option value="pequeno">Pequeno</option>
-                        <option value="medio">Médio</option>
-                        <option value="grande">Grande</option>
-                        <option value="gigante">Gigante</option>
-                    </select>
-                </div>
-                <div class="filtro-item">
-                    <label>Idade</label>
-                    <select>
-                        <option value="">Sem preferência</option>
-                        <option value="menos-3-meses">Menor que 03 meses</option>
-                        <option value="3-5-meses">De 03 meses a 05 meses</option>
-                        <option value="6-meses-7-anos">06 meses a 07 anos</option>
-                        <option value="acima-7-anos">Acima de 07 anos</option>
-                    </select>
-                </div>
-                <div class="filtro-item">
-                    <label>Peso</label>
-                    <select>
-                        <option value="">Sem preferência</option>
-                        <option value="ate-5kg">Até 5kg</option>
-                        <option value="6-15kg">De 06 a 15kg</option>
-                        <option value="acima-15kg">Acima de 15kg</option>
-                    </select>
-                </div>
-            </div>
+            <button class="btn-toggle-filtros">
+                <span>⚙️ Filtros de pesquisa</span>
+                <span class="seta-filtro">▼</span>
+            </button>
 
-            <div class="ordenacao-wrapper">
-                <label>Ordenar por:</label>
-                <select>
-                    <option value="recentes">Dos mais recentes</option>
-                    <option value="recentes">Mais recentes</option>
-                    <option value="az">De A ↓ Z</option>
-                </select>
+            <div class="filtros-expansivel">
+                <div class="grid-filtros-selects">
+                    <div class="filtro-item">
+                        <label>Espécie</label>
+                        <select>
+                            <option value="">Sem preferência</option>
+                            <option value="gato">Gato</option>
+                            <option value="cachorro">Cachorro</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label>Sexo</label>
+                        <select>
+                            <option value="">Sem preferência</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label>Porte</label>
+                        <select>
+                            <option value="">Sem preferência</option>
+                            <option value="minusculo">Minúsculo</option>
+                            <option value="pequeno">Pequeno</option>
+                            <option value="medio">Médio</option>
+                            <option value="grande">Grande</option>
+                            <option value="gigante">Gigante</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label>Idade</label>
+                        <select>
+                            <option value="">Sem preferência</option>
+                            <option value="menos-3-meses">Menor que 03 meses</option>
+                            <option value="3-5-meses">De 03 meses a 05 meses</option>
+                            <option value="6-meses-7-anos">06 meses a 07 anos</option>
+                            <option value="acima-7-anos">Acima de 07 anos</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label>Peso</label>
+                        <select>
+                            <option value="">Sem preferência</option>
+                            <option value="ate-5kg">Até 5kg</option>
+                            <option value="6-15kg">De 06 a 15kg</option>
+                            <option value="acima-15kg">Acima de 15kg</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ordenacao-wrapper">
+                    <label>Ordenar por:</label>
+                    <select>
+                        <option value="recentes">Mais recentes</option>
+                        <option value="az">De A ↓ Z</option>
+                    </select>
+                </div>
             </div>
         </section>
 
         <div class="grid-animais">
             <script>
+                // Loop Inteligente: carimba o código do card 9 vezes para não escrever na mão
                 for (let i = 0; i < 9; i++) {
                     document.write(`
                     <article class="card-animal">
@@ -253,15 +309,19 @@
         <div class="footer-container">
             <div class="footer-coluna">
                 <h4>Desenvolvimento</h4>
-                <p>© SEICIT/SUBTI</p>
+                <p>© SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação</p>
+                <p>Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-110</p>
+                <p>Abertura de chamados: <a href="#">centraldeajuda.serra.es.gov.br</a></p>
             </div>
             <div class="footer-coluna">
                 <h4>Gestão</h4>
-                <p>GBEA - Gerência do Bem-Estar Animal</p>
+                <p>GBEA - Gerência do Bem-Estar Animal - Secretaria Municipal de Meio Ambiente (SEMMAM)</p>
+                <p>Av. Talma Rodrigues Ribeiro, 5416, Portal de Jacaraípe, Serra/ES</p>
+                <p>Telefones: (27) 3382-6578 / (27) 3382-6540</p>
             </div>
             <div class="footer-coluna">
-                <h4>Clínicas</h4>
-                <p><a href="#">Acesse a área administrativa</a></p>
+                <h4>Área administrativa - Clínicas</h4>
+                <p>Se você é uma das clínicas credenciadas, <a href="#">clique aqui</a> para acessar.</p>
             </div>
         </div>
     </footer>

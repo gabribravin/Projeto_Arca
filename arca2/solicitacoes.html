@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Solicitações - Programa ARCA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container-solicitacoes {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 4%;
+        }
+        .titulo-secao-solicitacoes {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            margin-bottom: 30px;
+        }
+        .abas-modulos-navegacao {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .aba-item-btn {
+            background-color: var(--verde-institucional);
+            color: var(--branco);
+            padding: 10px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .aba-item-btn.active {
+            background-color: var(--amarelo-primario);
+            color: #000000;
+        }
+        .card-solicitacao-item {
+            background-color: var(--fundo-card);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--borda-card);
+        }
+        .solicitacao-header-titulo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--verde-navbar);
+            margin-bottom: 6px;
+        }
+        .solicitacao-data-envio {
+            font-size: 14px;
+            color: var(--texto-escuro);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .solicitacao-status-tag {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--texto-escuro);
+        }
+        .solicitacao-descricao-status {
+            font-size: 14px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-prefeitura">
+        <div class="logo-prefeitura-topo">
+            <img src="./imagens/prefeitura-arca-serra.png" alt="Logo Prefeitura da Serra">
+        </div>
+    </div>
+
+    <nav class="navbar-arca">
+        <a href="index.html" class="logo-arca">
+            <img src="./imagens/logo-arca.png" alt="Logo Programa ARCA">
+            <div class="logo-texto">
+                <span>PROJETO</span>
+                <strong>ARCA</strong>
+            </div>
+        </a>
+        <button class="menu-hamburger" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="menu-links">
+            <li><a href="adocao.html">Adoção</a></li>
+            <li><a href="#">Castração</a></li>
+            <li><a href="#">Denúncia</a></li>
+            <li><a href="#">Resgate</a></li>
+            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="solicitacoes.html" class="active">Perfil</a></li>
+        </ul>
+    </nav>
+
+    <main class="container-solicitacoes">
+        <h2 class="titulo-secao-solicitacoes">Minhas Solicitações:</h2>
+
+        <div class="abas-modulos-navegacao">
+            <a href="#" class="aba-item-btn active">Adoções</a>
+            <a href="#" class="aba-item-btn">Castrações</a>
+            <a href="#" class="aba-item-btn">Denúncias</a>
+            <a href="#" class="aba-item-btn">Resgates</a>
+        </div>
+
+        <section class="lista-solicitacoes-wrapper">
+            
+            <article class="card-solicitacao-item">
+                <div class="solicitacao-header-titulo">🐾 Animal: André (Gato - Jovem)</div>
+                <div class="solicitacao-data-envio">📅 Enviado em: 20/05/2026</div>
+                <div class="solicitacao-status-tag">Status: [ ⏳ EM ANÁLISE ]</div>
+                <div class="solicitacao-descricao-status">Sua entrevista está sendo revisada pelos nossos veterinários.</div>
+            </article>
+
+            <article class="card-solicitacao-item">
+                <div class="solicitacao-header-titulo">🐾 Animal: Mel (Cachorra - Adulta)</div>
+                <div class="solicitacao-data-envio">📅 Finalizado em: 14/02/2026</div>
+                <div class="solicitacao-status-tag" style="color: var(--sucesso);">Status: [ ✅ APROVADO - ADOTADO! ]</div>
+                <div class="solicitacao-descricao-status">Adoção finalizada!</div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="footer-arca">
+        <div class="footer-container">
+            <div class="footer-coluna">
+                <h4>Desenvolvimento</h4>
+                <p>© SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação</p>
+                <p>Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-110</p>
+                <p>Abertura de chamados: <a href="#">centraldeajuda.serra.es.gov.br</a></p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Gestão</h4>
+                <p>GBEA - Gerência do Bem-Estar Animal - Secretaria Municipal de Meio Ambiente (SEMMAM)</p>
+                <p>Av. Talma Rodrigues Ribeiro, 5416, Portal de Jacaraípe, Serra/ES</p>
+                <p>Telefones: (27) 3382-6578 / (27) 3382-6540</p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Área administrativa - Clínicas</h4>
+                <p>Se você é uma das clínicas credenciadas, <a href="#">clique aqui</a> para acessar.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

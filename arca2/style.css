@@ -12,14 +12,14 @@
    VARIÁVEIS DE AMBIENTE (DESIGN SYSTEM)
    ========================================================================== */
 :root {
-    --verde-institucional: #113f3c; /* Verde escuro presente no topo da prefeitura e rodapé */
+    --verde-institucional: #113f3c; /* "Apelido" para o verde oficial da prefeitura */
     --verde-navbar: #3a817a; /* Verde água intermediário da barra de navegação do Programa Arca */
     --amarelo-primario: #f2a922; /* Amarelo ouro dos botões de ação principal */
     --amarelo-hover: #d99316; /* Tom levemente mais escuro para efeito hover no botão principal */
-    --fundo-card: #f0f6fa; /* Azul/cinza claro bem suave para containers e backgrounds de cards */
+    --fundo-card: #f0f6fa; /* Cor de fundo suave para os cards de animais */
     --borda-card: #d3e2ee; /* Cor das bordas suaves dos inputs e contornos */
     --texto-escuro: #0d2c29; /* Cor predominante dos textos e títulos principais */
-    --texto-mutado: #5a6e72; /* Cor secundária para descrições de menor relevância */
+    --texto-mutado: #5a6e72; /* Cor cinza para textos menos importantes */
     --branco: #ffffff; /* Branco puro para contrastes e fundos limpos */
     --sucesso: #28a745; /* Verde padrão para status de aprovação/sucesso */
 }
@@ -28,7 +28,7 @@
 body {
     background-color: var(--branco);
     color: var(--texto-escuro);
-    overflow-x: hidden; /* Bloqueia scroll horizontal indesejado em qualquer resolução */
+    overflow-x: hidden; /* Garante que a página não "balance" para os lados no celular */
     line-height: 1.5; /* Altura de linha ergonômica para leitura */
 }
 
@@ -92,8 +92,9 @@ body {
     display: flex;
     justify-content: space-between; /* Logo à esquerda e links à direita */
     align-items: center;
-    position: relative;
-    z-index: 1000; /* Garante que o menu flutue por cima de qualquer conteúdo */
+    position: sticky; /* Diz para o menu seguir o usuário e travar no topo (0) */
+    top: 0; /* Ponto onde o menu "cola" na tela */
+    z-index: 1000; /* Mantém o menu sempre na camada acima de tudo */
 }
 
 .logo-arca {
@@ -249,15 +250,15 @@ body {
    ========================================================================== */
 .grid-animais {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Layout clássico de 3 colunas horizontais */
+    grid-template-columns: repeat(3, 1fr); /* Divide o espaço em 3 colunas iguais no desktop */
     gap: 30px; /* Distanciamento idêntico observado nas telas completas */
     margin-top: 25px;
 }
 
 .card-animal {
-    background-color: var(--branco);
+    background-color: var(--fundo-card);
+    background-color: var(--fundo-card);
     border-radius: 20px; /* Bordas arredondadas pronunciadas conforme o mockup */
-    padding: 16px;
     display: flex;
     flex-direction: column;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -266,9 +267,9 @@ body {
 .card-imagem-wrapper {
     width: 100%;
     position: relative;
-    border-radius: 16px;
+    border-radius: 20px 20px 0 0; /* Acompanha perfeitamente o topo do card */
     overflow: hidden; /* Trunca cantos da imagem interna */
-    aspect-ratio: 3 / 4; /* Proporção ajustada para um visual mais vertical e menos compacto */
+    aspect-ratio: 3 / 4; /* Garante que a foto do animal seja sempre um retângulo vertical */
 }
 
 .card-imagem-wrapper img {
@@ -422,8 +423,8 @@ body {
         font-size: 13px;
         padding: 10px;
     }
-    .secao-vitrine .card-animal:nth-child(n+2) {
-        display: none; /* Esconde os demais apenas na vitrine da home */
+    .card-animal:nth-child(n+2) {
+        display: none; /* Esconde os demais gatos, deixando apenas um no mobile */
     }
     .footer-arca {
         font-size: 11px; /* Texto do rodapé reduzido */

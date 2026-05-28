@@ -74,6 +74,11 @@
             margin: 0 auto;
             display: flex;
         }
+        /* Se algum campo 'required' estiver vazio, o botão fica transparente e bloqueado */
+        form:invalid .btn-enviar-solicitacao {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +86,13 @@
     <div class="barra-prefeitura">
         <div class="logo-prefeitura-topo">
             <img src="./imagens/prefeitura-arca-serra.png" alt="Logo Prefeitura da Serra">
+        </div>
+        <div class="nav-institucional-links">
+            <a href="#"><span>1</span> Conteúdo</a>
+            <a href="#"><span>2</span> Menu</a>
+            <a href="#"><span>3</span> Busca</a>
+            <a href="#"><span>4</span> Contraste</a>
+            <a href="#"><span>5</span> Acessibilidade</a>
         </div>
     </div>
 
@@ -97,10 +109,18 @@
             <span></span>
             <span></span>
         </button>
+        <ul class="menu-links">
+            <li><a href="adocao.html" class="active">Adoção</a></li>
+            <li><a href="#">Castração</a></li>
+            <li><a href="#">Denúncia</a></li>
+            <li><a href="#">Resgate</a></li>
+            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="solicitacoes.html">Perfil</a></li>
+        </ul>
     </nav>
 
     <main class="container-formulario">
-        <a href="animal.html" class="btn-voltar">Voltar</a>
+        <a href="javascript:history.back()" class="btn-voltar">Voltar</a>
         <div style="clear: both;"></div>
 
         <h2 class="header-formulario-titulo">Falta pouco para o início de uma grande amizade! 🐾</h2>
@@ -108,32 +128,32 @@
 
         <form action="solicitacoes.html" method="GET">
             
-            <fieldset class="bloco-pergunta-card" style="border: none;">
-                <legend class="pergunta-enunciado">1. Como é a sua residência?</legend>
+            <div class="bloco-pergunta-card">
+                <h3 class="pergunta-enunciado">1. Como é a sua residência?</h3>
                 <label class="opcao-checkbox-label"><input type="radio" name="residencia" required> Casa com Quintal</label>
                 <label class="opcao-checkbox-label"><input type="radio" name="residencia"> Casa sem Quintal</label>
                 <label class="opcao-checkbox-label"><input type="radio" name="residencia"> Apartamento</label>
                 <label class="opcao-checkbox-label"><input type="radio" name="residencia"> Sítio / Chácara</label>
-            </fieldset>
+            </div>
 
-            <fieldset class="bloco-pergunta-card" style="border: none;">
-                <legend class="pergunta-enunciado">2. A casa possui telas de proteção ou muros altos?</legend>
+            <div class="bloco-pergunta-card">
+                <h3 class="pergunta-enunciado">2. A casa possui telas de proteção ou muros altos?</h3>
                 <label class="opcao-checkbox-label"><input type="radio" name="telas" required> Sim</label>
                 <label class="opcao-checkbox-label"><input type="radio" name="telas"> Não</label>
-            </fieldset>
+            </div>
 
-            <fieldset class="bloco-pergunta-card" style="border: none;">
-                <legend class="pergunta-enunciado">3. Você já possui outros animais em casa?</legend>
+            <div class="bloco-pergunta-card">
+                <h3 class="pergunta-enunciado">3. Você já possui outros animais em casa?</h3>
                 <label class="opcao-checkbox-label"><input type="radio" name="outros_pets" required> Sim, cães/gatos</label>
                 <label class="opcao-checkbox-label"><input type="radio" name="outros_pets"> Não possuo</label>
-            </fieldset>
+            </div>
 
-            <fieldset class="bloco-pergunta-card" style="border: none;">
-                <legend class="pergunta-enunciado">4. O animal passará muito tempo sozinho?</legend>
-                <label class="opcao-checkbox-label"><input type="radio" name="tempo_sozinho" required> Não, sem trem alguém</label>
+            <div class="bloco-pergunta-card">
+                <h3 class="pergunta-enunciado">4. O animal passará muito tempo sozinho?</h3>
+                <label class="opcao-checkbox-label"><input type="radio" name="tempo_sozinho" required> Não, sempre tem alguém</label>
                 <label class="opcao-checkbox-label"><input type="radio" name="tempo_sozinho"> Período Curto</label>
                 <label class="opcao-checkbox-label"><input type="radio" name="tempo_sozinho"> O dia todo</label>
-            </fieldset>
+            </div>
 
             <div class="termo-guarda-box">
                 <div class="termo-titulo">Termo de Guarda Responsável</div>
@@ -151,7 +171,19 @@
         <div class="footer-container">
             <div class="footer-coluna">
                 <h4>Desenvolvimento</h4>
-                <p>© SEICIT/SUBTI</p>
+                <p>© SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação</p>
+                <p>Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-110</p>
+                <p>Abertura de chamados: <a href="#">centraldeajuda.serra.es.gov.br</a></p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Gestão</h4>
+                <p>GBEA - Gerência do Bem-Estar Animal - Secretaria Municipal de Meio Ambiente (SEMMAM)</p>
+                <p>Av. Talma Rodrigues Ribeiro, 5416, Portal de Jacaraípe, Serra/ES</p>
+                <p>Telefones: (27) 3382-6578 / (27) 3382-6540</p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Área administrativa - Clínicas</h4>
+                <p>Se você é uma das clínicas credenciadas, <a href="#">clique aqui</a> para acessar.</p>
             </div>
         </div>
     </footer>
