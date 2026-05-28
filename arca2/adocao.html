@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animais Disponíveis para Adoção - Programa ARCA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container-listagem {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 4%;
+        }
+        .secao-titulo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+        .barra-filtros-container {
+            background-color: var(--verde-institucional);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+        .input-busca-wrapper {
+            width: 100%;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .input-busca-wrapper input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border-radius: 25px;
+            border: none;
+            font-size: 15px;
+        }
+        .filtro-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .filtro-item label {
+            color: var(--branco);
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            opacity: 0.7; /* Mantendo a transparência solicitada */
+        }
+        .grid-filtros-selects {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .grid-filtros-selects select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--borda-card);
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.5); /* Texto dos filtros meio transparente */
+        }
+        .ordenacao-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--branco);
+            font-size: 13px;
+        }
+        .ordenacao-wrapper select {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5); /* Texto meio transparente */
+        }
+        .paginacao {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-top: 50px;
+        }
+        .paginacao button {
+            background-color: #e0e0e0;
+            border: none;
+            padding: 8px 14px;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--texto-escuro);
+        }
+        .paginacao button.active {
+            background-color: #b0bec5;
+        }
+        @media (max-width: 900px) {
+            .grid-filtros-selects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .grid-filtros-selects {
+                grid-template-columns: 1fr;
+            }
+            .secao-titulo {
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-prefeitura">
+        <div class="logo-prefeitura-topo">
+            <img src="./imagens/prefeitura-arca-serra.png" alt="Logo Prefeitura da Serra">
+        </div>
+    </div>
+
+    <nav class="navbar-arca">
+        <a href="index.html" class="logo-arca">
+            <img src="./imagens/logo-arca.png" alt="Logo Programa ARCA">
+            <div class="logo-texto">
+                <span>PROJETO</span>
+                <strong>ARCA</strong>
+            </div>
+        </a>
+        <button class="menu-hamburger" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="menu-links">
+            <li><a href="adocao.html" class="active">Adoção</a></li>
+            <li><a href="#">Castração</a></li>
+            <li><a href="#">Denúncia</a></li>
+            <li><a href="#">Resgate</a></li>
+            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="solicitacoes.html">Perfil</a></li>
+        </ul>
+    </nav>
+
+    <main class="container-listagem">
+        <h3 class="secao-titulo">Animais disponíveis para adoção</h3>
+
+        <section class="barra-filtros-container">
+            <div class="input-busca-wrapper">
+                <span style="position: absolute; left: 15px; top: 12px; color: #888;">🔍</span>
+                <input type="text" placeholder="Buscar">
+            </div>
+
+            <div class="grid-filtros-selects">
+                <div class="filtro-item">
+                    <label>Espécie</label>
+                    <select>
+                        <option value="">Sem preferência</option>
+                        <option value="gato">Gato</option>
+                        <option value="cachorro">Cachorro</option>
+                    </select>
+                </div>
+                <div class="filtro-item">
+                    <label>Sexo</label>
+                    <select>
+                        <option value="">Sem preferência</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                    </select>
+                </div>
+                <div class="filtro-item">
+                    <label>Porte</label>
+                    <select>
+                        <option value="">Sem preferência</option>
+                        <option value="minusculo">Minúsculo</option>
+                        <option value="pequeno">Pequeno</option>
+                        <option value="medio">Médio</option>
+                        <option value="grande">Grande</option>
+                        <option value="gigante">Gigante</option>
+                    </select>
+                </div>
+                <div class="filtro-item">
+                    <label>Idade</label>
+                    <select>
+                        <option value="">Sem preferência</option>
+                        <option value="menos-3-meses">Menor que 03 meses</option>
+                        <option value="3-5-meses">De 03 meses a 05 meses</option>
+                        <option value="6-meses-7-anos">06 meses a 07 anos</option>
+                        <option value="acima-7-anos">Acima de 07 anos</option>
+                    </select>
+                </div>
+                <div class="filtro-item">
+                    <label>Peso</label>
+                    <select>
+                        <option value="">Sem preferência</option>
+                        <option value="ate-5kg">Até 5kg</option>
+                        <option value="6-15kg">De 06 a 15kg</option>
+                        <option value="acima-15kg">Acima de 15kg</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="ordenacao-wrapper">
+                <label>Ordenar por:</label>
+                <select>
+                    <option value="recentes">Dos mais recentes</option>
+                    <option value="recentes">Mais recentes</option>
+                    <option value="az">De A ↓ Z</option>
+                </select>
+            </div>
+        </section>
+
+        <div class="grid-animais">
+            <script>
+                for (let i = 0; i < 9; i++) {
+                    document.write(`
+                    <article class="card-animal">
+                        <div class="card-imagem-wrapper">
+                            <img src="./imagens/gato.png" alt="Gato André para adoção">
+                        </div>
+                        <div class="card-info">
+                            <h4 class="card-nome">André</h4>
+                            <div class="card-meta">
+                                <span>🐾</span> Bom lar
+                            </div>
+                            <div class="card-meta">
+                                <span>📍</span> Osasco
+                            </div>
+                            <div class="card-acoes">
+                                <a href="formulario-adocao.html" class="btn-amarelo">Adotar</a>
+                                <a href="animal.html" class="btn-escuro">Sobre o animal</a>
+                            </div>
+                        </div>
+                    </article>
+                    `);
+                }
+            </script>
+        </div>
+
+        <div class="paginacao">
+            <button>&lt;&lt;</button>
+            <button>&lt;</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>&gt;</button>
+            <button>&gt;&gt;</button>
+        </div>
+    </main>
+
+    <footer class="footer-arca">
+        <div class="footer-container">
+            <div class="footer-coluna">
+                <h4>Desenvolvimento</h4>
+                <p>© SEICIT/SUBTI</p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Gestão</h4>
+                <p>GBEA - Gerência do Bem-Estar Animal</p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Clínicas</h4>
+                <p><a href="#">Acesse a área administrativa</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

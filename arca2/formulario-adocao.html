@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Adoção - Programa ARCA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container-formulario {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 4%;
+        }
+        .header-formulario-titulo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            margin-bottom: 10px;
+        }
+        .subtitulo-formulario {
+            font-size: 16px;
+            color: var(--verde-navbar);
+            font-weight: 600;
+            margin-bottom: 35px;
+        }
+        .bloco-pergunta-card {
+            background-color: var(--fundo-card);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--borda-card);
+        }
+        .pergunta-enunciado {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--verde-navbar);
+            margin-bottom: 15px;
+        }
+        .opcao-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--texto-escuro);
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .opcao-checkbox-label:last-child {
+            margin-bottom: 0;
+        }
+        .opcao-checkbox-label input[type="checkbox"],
+        .opcao-checkbox-label input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--verde-navbar); /* Aplica cor da identidade nos inputs */
+        }
+        .termo-guarda-box {
+            margin: 40px 0;
+            font-size: 14px;
+            color: var(--texto-escuro);
+        }
+        .termo-titulo {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--texto-mutado);
+        }
+        .btn-enviar-solicitacao {
+            max-width: 100%;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-prefeitura">
+        <div class="logo-prefeitura-topo">
+            <img src="./imagens/prefeitura-arca-serra.png" alt="Logo Prefeitura da Serra">
+        </div>
+    </div>
+
+    <nav class="navbar-arca">
+        <a href="index.html" class="logo-arca">
+            <img src="./imagens/logo-arca.png" alt="Logo Programa ARCA">
+            <div class="logo-texto">
+                <span>PROJETO</span>
+                <strong>ARCA</strong>
+            </div>
+        </a>
+        <button class="menu-hamburger" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main class="container-formulario">
+        <a href="animal.html" class="btn-voltar">Voltar</a>
+        <div style="clear: both;"></div>
+
+        <h2 class="header-formulario-titulo">Falta pouco para o início de uma grande amizade! 🐾</h2>
+        <p class="subtitulo-formulario">Responda essas perguntinhas rápidas para sabermos se você e o André combinam.</p>
+
+        <form action="solicitacoes.html" method="GET">
+            
+            <fieldset class="bloco-pergunta-card" style="border: none;">
+                <legend class="pergunta-enunciado">1. Como é a sua residência?</legend>
+                <label class="opcao-checkbox-label"><input type="radio" name="residencia" required> Casa com Quintal</label>
+                <label class="opcao-checkbox-label"><input type="radio" name="residencia"> Casa sem Quintal</label>
+                <label class="opcao-checkbox-label"><input type="radio" name="residencia"> Apartamento</label>
+                <label class="opcao-checkbox-label"><input type="radio" name="residencia"> Sítio / Chácara</label>
+            </fieldset>
+
+            <fieldset class="bloco-pergunta-card" style="border: none;">
+                <legend class="pergunta-enunciado">2. A casa possui telas de proteção ou muros altos?</legend>
+                <label class="opcao-checkbox-label"><input type="radio" name="telas" required> Sim</label>
+                <label class="opcao-checkbox-label"><input type="radio" name="telas"> Não</label>
+            </fieldset>
+
+            <fieldset class="bloco-pergunta-card" style="border: none;">
+                <legend class="pergunta-enunciado">3. Você já possui outros animais em casa?</legend>
+                <label class="opcao-checkbox-label"><input type="radio" name="outros_pets" required> Sim, cães/gatos</label>
+                <label class="opcao-checkbox-label"><input type="radio" name="outros_pets"> Não possuo</label>
+            </fieldset>
+
+            <fieldset class="bloco-pergunta-card" style="border: none;">
+                <legend class="pergunta-enunciado">4. O animal passará muito tempo sozinho?</legend>
+                <label class="opcao-checkbox-label"><input type="radio" name="tempo_sozinho" required> Não, sem trem alguém</label>
+                <label class="opcao-checkbox-label"><input type="radio" name="tempo_sozinho"> Período Curto</label>
+                <label class="opcao-checkbox-label"><input type="radio" name="tempo_sozinho"> O dia todo</label>
+            </fieldset>
+
+            <div class="termo-guarda-box">
+                <div class="termo-titulo">Termo de Guarda Responsável</div>
+                <p style="margin-bottom: 15px; color: #333;">Adotar é um ato de amor, mas também de responsabilidade. Você se compromete a oferecer alimentação, vacinas e espaço seguro?</p>
+                <label class="opcao-checkbox-label">
+                    <input type="checkbox" required> Li e concordo com o Termo de Guarda Responsável
+                </label>
+            </div>
+
+            <button type="submit" class="btn-amarelo btn-enviar-solicitacao">Enviar Solicitação de Adoção</button>
+        </form>
+    </main>
+
+    <footer class="footer-arca">
+        <div class="footer-container">
+            <div class="footer-coluna">
+                <h4>Desenvolvimento</h4>
+                <p>© SEICIT/SUBTI</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

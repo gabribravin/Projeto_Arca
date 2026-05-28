@@ -1,0 +1,442 @@
+/* ==========================================================================
+   RESET CSS UNIVERSAL
+   ========================================================================== */
+* {
+    margin: 0; /* Remove margens padrões de todos os elementos */
+    padding: 0; /* Remove paddings padrões de todos os elementos */
+    box-sizing: border-box; /* Garante que padding e border estejam inclusos no cálculo da largura/altura */
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Define família tipográfica sans-serif limpa e próxima ao Figma */
+}
+
+/* ==========================================================================
+   VARIÁVEIS DE AMBIENTE (DESIGN SYSTEM)
+   ========================================================================== */
+:root {
+    --verde-institucional: #113f3c; /* Verde escuro presente no topo da prefeitura e rodapé */
+    --verde-navbar: #3a817a; /* Verde água intermediário da barra de navegação do Programa Arca */
+    --amarelo-primario: #f2a922; /* Amarelo ouro dos botões de ação principal */
+    --amarelo-hover: #d99316; /* Tom levemente mais escuro para efeito hover no botão principal */
+    --fundo-card: #f0f6fa; /* Azul/cinza claro bem suave para containers e backgrounds de cards */
+    --borda-card: #d3e2ee; /* Cor das bordas suaves dos inputs e contornos */
+    --texto-escuro: #0d2c29; /* Cor predominante dos textos e títulos principais */
+    --texto-mutado: #5a6e72; /* Cor secundária para descrições de menor relevância */
+    --branco: #ffffff; /* Branco puro para contrastes e fundos limpos */
+    --sucesso: #28a745; /* Verde padrão para status de aprovação/sucesso */
+}
+
+/* Configuração base da página para evitar quebras de scroll lateral */
+body {
+    background-color: var(--branco);
+    color: var(--texto-escuro);
+    overflow-x: hidden; /* Bloqueia scroll horizontal indesejado em qualquer resolução */
+    line-height: 1.5; /* Altura de linha ergonômica para leitura */
+}
+
+/* ==========================================================================
+   BARRA INSTITUCIONAL SUPERIOR (PREFEITURA DA SERRA)
+   ========================================================================== */
+.barra-prefeitura {
+    background-color: var(--verde-institucional); /* Fundo verde escuro oficial */
+    color: var(--branco);
+    padding: 10px 4%; /* Margem interna proporcional */
+    display: flex;
+    justify-content: space-between; /* Separa o logo à esquerda dos links à direita */
+    align-items: center;
+    font-size: 13px; /* Texto pequeno institucional */
+    font-weight: 500;
+}
+
+.logo-prefeitura-topo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o brasão e o texto */
+}
+
+.logo-prefeitura-topo img {
+    height: 32px; /* Altura exata calibrada para o brasão institucional */
+}
+
+.logo-prefeitura-topo div {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.nav-institucional-links {
+    display: flex;
+    gap: 15px; /* Espaçamento simétrico entre os itens numéricos */
+}
+
+.nav-institucional-links a {
+    color: var(--branco);
+    text-decoration: none; /* Remove sublinhado padrão */
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-institucional-links span {
+    background: rgba(255, 255, 255, 0.2); /* Fundo sutil para destacar o número do atalho */
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   NAVBAR PRINCIPAL (PROGRAMA ARCA)
+   ========================================================================== */
+.navbar-arca {
+    background-color: var(--verde-navbar); /* Tom verde água característico do programa */
+    padding: 15px 4%;
+    display: flex;
+    justify-content: space-between; /* Logo à esquerda e links à direita */
+    align-items: center;
+    position: relative;
+    z-index: 1000; /* Garante que o menu flutue por cima de qualquer conteúdo */
+}
+
+.logo-arca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.logo-arca img {
+    height: 52px; /* Aumentado para dar mais destaque */
+}
+
+.logo-texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+.logo-texto span {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.logo-texto strong {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.menu-links {
+    display: flex;
+    gap: 25px; /* Gaps horizontais idênticos aos espaçamentos do Figma */
+    align-items: center;
+    list-style: none;
+}
+
+.menu-links a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: opacity 0.2s ease; /* Transição leve para interações */
+}
+
+.menu-links a:hover, .menu-links a.active {
+    opacity: 0.85;
+    border-bottom: 2px solid var(--branco); /* Linha de indicação ativa */
+    padding-bottom: 4px;
+}
+
+/* Menu Hambúrguer Oculto por padrão no Desktop */
+.menu-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--branco);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.hero-logo-destaque {
+    width: 100%;
+    max-width: 900px; /* Reduzido levemente para um visual mais equilibrado */
+    height: auto;
+    display: block;
+    border-radius: 15px; /* Bordas arredondadas para um visual mais limpo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave para dar profundidade */
+}
+
+/* ==========================================================================
+   ELEMENTOS DE BOTÕES E UI GLOBAL
+   ========================================================================== */
+.btn-amarelo {
+    background-color: var(--amarelo-primario);
+    color: var(--texto-escuro);
+    border: none;
+    padding: 12px 28px;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 6px; /* Cantos levemente arredondados fiéis à imagem */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%; /* Ocupa totalidade do container por padrão, responsivo */
+    max-width: 240px; /* Limite padrão para botões soltos */
+}
+
+.btn-amarelo:hover {
+    background-color: var(--amarelo-hover);
+}
+
+.btn-escuro {
+    background-color: var(--verde-institucional);
+    color: var(--branco);
+    border: none;
+    padding: 12px 28px;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    width: 100%;
+    max-width: 240px;
+}
+
+.btn-escuro:hover {
+    opacity: 0.9;
+}
+
+.btn-voltar {
+    background-color: var(--verde-institucional);
+    color: var(--branco);
+    border: none;
+    padding: 8px 35px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    float: right; /* Alinha à direita conforme fluxo do layout */
+}
+
+.chamada-ver-mais {
+    font-size: 36px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   VITRINE DE CARDS DE ANIMAIS (REUTILIZÁVEL)
+   ========================================================================== */
+.grid-animais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Layout clássico de 3 colunas horizontais */
+    gap: 30px; /* Distanciamento idêntico observado nas telas completas */
+    margin-top: 25px;
+}
+
+.card-animal {
+    background-color: var(--branco);
+    border-radius: 20px; /* Bordas arredondadas pronunciadas conforme o mockup */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-imagem-wrapper {
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden; /* Trunca cantos da imagem interna */
+    aspect-ratio: 3 / 4; /* Proporção ajustada para um visual mais vertical e menos compacto */
+}
+
+.card-imagem-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adapta a imagem sem distorcer as proporções do animal */
+}
+
+.card-info {
+    padding: 20px; /* Espaçamento interno apenas para os textos e botões */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-nome {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--texto-escuro);
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--texto-escuro);
+    font-weight: 500;
+}
+
+.card-meta img {
+    width: 16px;
+    height: 16px;
+}
+
+.card-acoes {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento vertical entre os dois botões internos do card */
+}
+
+.card-acoes .btn-amarelo, .card-acoes .btn-escuro {
+    max-width: 100%; /* Botões preenchem a largura total interna do card */
+    padding: 8px 15px;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+/* ==========================================================================
+   RODAPÉ INSTITUCIONAL PARCEIRO E GOVERNAMENTAL
+   ========================================================================== */
+.footer-arca {
+    background-color: var(--verde-institucional); /* Cor escura corporativa */
+    color: var(--branco);
+    padding: 40px 4% 30px 4%;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 60px; /* Garante separação saudável do término do fluxo de dados */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divisão exata em 3 blocos de informação */
+    gap: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 25px;
+}
+
+.footer-coluna h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: none;
+}
+
+.footer-coluna p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 6px;
+}
+
+.footer-coluna a {
+    color: var(--branco);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   SISTEMA DE MEDIA QUERIES (RESPONSIVIDADE COMPLETA)
+   ========================================================================== */
+
+/* Notebooks e Desktops menores (Abaixo de 1024px) */
+@media (max-width: 1024px) {
+    .grid-animais {
+        grid-template-columns: repeat(2, 1fr); /* Transiciona para duas colunas para preservar legibilidade */
+        gap: 20px;
+    }
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets (Abaixo de 768px) */
+@media (max-width: 768px) {
+    .barra-prefeitura {
+        flex-direction: column; /* Alinha marcas verticalmente no ambiente mobile */
+        gap: 10px;
+        text-align: center;
+    }
+    .nav-institucional-links {
+        display: none; /* Oculta atalhos avançados para limpar visual mobile */
+    }
+    .menu-hamburger {
+        display: flex; /* Exibe gatilho do menu colapsável */
+    }
+    .menu-links {
+        display: none; /* Esconde lista padrão horizontal */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--verde-navbar);
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .menu-links.active {
+        display: flex; /* Acionado dinamicamente via JS */
+    }
+    .grid-animais {
+        grid-template-columns: 1fr; /* Coluna única centralizada */
+        max-width: 300px; /* Card e imagem do gato menores */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card-imagem-wrapper {
+        aspect-ratio: 1 / 1; /* Torna a imagem quadrada no mobile, reduzindo a altura */
+    }
+    .card-imagem-wrapper img {
+        object-position: center top; /* Prioriza a parte superior da foto (onde fica o rosto) */
+    }
+    .card-nome {
+        font-size: 15px;
+    }
+    .card-meta {
+        font-size: 12px;
+    }
+    .card-acoes .btn-amarelo, .card-acoes .btn-escuro {
+        font-size: 13px;
+        padding: 10px;
+    }
+    .secao-vitrine .card-animal:nth-child(n+2) {
+        display: none; /* Esconde os demais apenas na vitrine da home */
+    }
+    .footer-arca {
+        font-size: 11px; /* Texto do rodapé reduzido */
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+/* Mobile Dispositivos Pequenos (Abaixo de 480px) */
+@media (max-width: 480px) {
+    .btn-amarelo, .btn-escuro {
+        max-width: 100%; /* Força botões a ocuparem largura inteira para clique facilitado via touch */
+    }
+}

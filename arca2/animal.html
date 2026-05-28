@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu nome é André! - Programa ARCA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container-detalhes-animal {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 4%;
+        }
+        .card-perfil-completo {
+            background-color: var(--fundo-card);
+            border-radius: 16px;
+            padding: 35px;
+            display: flex;
+            gap: 40px;
+            margin-top: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .foto-perfil-pet {
+            flex: 1;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+        }
+        .foto-perfil-pet img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ficha-tecnica-pet {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+        .nome-pet-titulo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            margin-bottom: 25px;
+        }
+        .grid-atributos-tecnicos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px 15px;
+            margin-bottom: 35px;
+        }
+        .atributo-item {
+            font-size: 15px;
+            color: var(--texto-escuro);
+        }
+        .atributo-item strong {
+            font-weight: 700;
+        }
+        .titulo-complementar {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--verde-navbar);
+            margin-bottom: 15px;
+        }
+        .texto-complementar-corpo {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--texto-escuro);
+            margin-bottom: 40px;
+        }
+        .btn-central-adocao {
+            max-width: 100%;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+        }
+        @media (max-width: 850px) {
+            .card-perfil-completo {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .foto-perfil-pet {
+                max-width: 100%;
+            }
+            .grid-atributos-tecnicos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-prefeitura">
+        <div class="logo-prefeitura-topo">
+            <img src="./imagens/prefeitura-arca-serra.png" alt="Logo Prefeitura da Serra">
+        </div>
+    </div>
+
+    <nav class="navbar-arca">
+        <a href="index.html" class="logo-arca">
+            <img src="./imagens/logo-arca.png" alt="Logo Programa ARCA">
+            <div class="logo-texto">
+                <span>PROJETO</span>
+                <strong>ARCA</strong>
+            </div>
+        </a>
+        <button class="menu-hamburger" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="menu-links">
+            <li><a href="adocao.html" class="active">Adoção</a></li>
+            <li><a href="#">Castração</a></li>
+            <li><a href="#">Denúncia</a></li>
+            <li><a href="#">Resgate</a></li>
+            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="solicitacoes.html">Perfil</a></li>
+        </ul>
+    </nav>
+
+    <main class="container-detalhes-animal">
+        <a href="adocao.html" class="btn-voltar">Voltar</a>
+        <div style="clear: both;"></div>
+
+        <section class="card-perfil-completo">
+            <div class="foto-perfil-pet">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&auto=format&fit=crop&q=80" alt="Gato André em close">
+            </div>
+
+            <div class="ficha-tecnica-pet">
+                <h2 class="nome-pet-titulo">Meu nome é André!</h2>
+                
+                <div class="grid-atributos-tecnicos">
+                    <div class="atributo-item">Espécie: <strong>Gato</strong></div>
+                    <div class="atributo-item">Peso: <strong>De 06 a 15Kg</strong></div>
+                    <div class="atributo-item">Castrado: <strong>Sim</strong></div>
+                    <div class="atributo-item">Sexo: <strong>Macho</strong></div>
+                    <div class="atributo-item">Porte: <strong>Médio</strong></div>
+                    <div class="atributo-item">Vacinado: <strong>Sim</strong></div>
+                    <div class="atributo-item">Idade: <strong>06 meses a 07 anos</strong></div>
+                    <div class="atributo-item">Raça: <strong>Laranja</strong></div>
+                    <div class="atributo-item">Vermifugado: <strong>Sim</strong></div>
+                    <div class="atributo-item">Código do animal: <strong>47731</strong></div>
+                </div>
+
+                <h3 class="titulo-complementar">Informações complementares</h3>
+                <div class="texto-complementar-corpo">
+                    Oi, eu sou André! 🐾 Sou um gatinho muito carinhoso, companheiro e estou à procura de uma família humana para chamar de minha e encher de ronrons. Já sou castrado, vacinado e vermifugado, prontinho para ganhar um lar seguro e cheio de amor. ❤️ Tudo o que eu mais quero é uma chance de receber carinho e fazer parte da sua vida. Que tal me levar para casa?
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--borda-card); margin-bottom: 25px;">
+
+                <a href="formulario-adocao.html" class="btn-amarelo btn-central-adocao">Quero adotar</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-arca">
+        <div class="footer-container">
+            <div class="footer-coluna">
+                <h4>Desenvolvimento</h4>
+                <p>© SEICIT/SUBTI</p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Gestão</h4>
+                <p>GBEA - Gerência do Bem-Estar Animal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
