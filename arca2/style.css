@@ -140,12 +140,81 @@ body {
     font-size: 15px;
     font-weight: 600;
     transition: opacity 0.2s ease; /* Transição leve para interações */
+    border-bottom: 2px solid transparent; /* Evita que o texto se mova ao passar o mouse */
+    padding-bottom: 4px;
 }
 
 .menu-links a:hover, .menu-links a.active {
     opacity: 0.85;
     border-bottom: 2px solid var(--branco); /* Linha de indicação ativa */
     padding-bottom: 4px;
+    border-bottom-color: var(--branco); /* Apenas altera a cor da borda existente */
+}
+
+/* ==========================================================================
+   DROPDOWN MENU (CASTRAÇÃO)
+   ========================================================================== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--fundo-card); /* Azul clarinho */
+    list-style: none;
+    padding: 0;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 1001;
+    overflow: hidden; /* Garante que o fundo não ultrapasse os cantos arredondados */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Alinha o último dropdown à direita no desktop para evitar que o menu saia da tela */
+@media (min-width: 769px) {
+    .menu-links li:last-child.dropdown .dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+    .menu-links li:last-child.dropdown .dropdown-menu li a {
+        text-align: right;
+    }
+}
+
+.dropdown-menu li a.logout-link {
+    color: #ff4b4b !important; /* Cor vermelha para indicar saída/ação crítica */
+    font-weight: 700;
+}
+
+.dropdown-menu li {
+    width: 100%;
+    border-bottom: 1px solid var(--borda-card); /* Linha separando cada opção */
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu li a {
+    padding: 8px 15px !important;
+    display: block;
+    font-size: 13px;
+    color: var(--texto-escuro) !important; /* Texto escuro para fundo claro */
+    font-weight: 500;
+    border-bottom: none !important; /* Garante que não herde a borda do menu principal */
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 1;
 }
 
 /* Menu Hambúrguer Oculto por padrão no Desktop */
@@ -237,6 +306,49 @@ body {
     float: right; /* Alinha à direita conforme fluxo do layout */
 }
 
+/* ==========================================================================
+   MODAL DE ACESSO OBRIGATÓRIO (LOGIN/CADASTRO)
+   ========================================================================== */
+.modal-arca-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Escondido por padrão */
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-arca-card {
+    background: var(--branco);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-arca-card h2 {
+    color: var(--verde-institucional);
+    margin-bottom: 15px;
+}
+
+.modal-arca-card p {
+    margin-bottom: 30px;
+    color: var(--texto-mutado);
+}
+
 .chamada-ver-mais {
     font-size: 36px;
     font-weight: 800;
@@ -309,7 +421,45 @@ body {
     margin-top: 12px;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Espaçamento vertical entre os dois botões internos do card */
+    gap: 8px;
+}
+
+.card-botoes-row {
+    display: flex;
+    gap: 8px;
+}
+
+.card-botoes-row .btn-amarelo {
+    flex: 1; /* Faz o botão de adotar ocupar o espaço restante */
+}
+
+.btn-favorito {
+    width: 35px;
+    height: 35px;
+    background-color: var(--verde-institucional);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--branco);
+    transition: all 0.2s ease;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.1);
+}
+
+.btn-favorito.favoritado {
+    color: #ff4b4b; /* Cor vermelha para o coração */
+}
+
+.btn-favorito-grande {
+    width: 54px; /* Altura calculada para alinhar com o btn-central-adocao */
+    height: 54px;
+    font-size: 22px;
 }
 
 .card-acoes .btn-amarelo, .card-acoes .btn-escuro {
@@ -401,6 +551,29 @@ body {
     .menu-links.active {
         display: flex; /* Acionado dinamicamente via JS */
     }
+    .menu-links li {
+        width: 100%;
+        text-align: center;
+    }
+    .dropdown-menu {
+        position: static;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.2); /* Fundo um pouco mais profundo */
+        box-shadow: none;
+        padding: 2px 0;
+        width: 60%; /* Ainda mais estreito para um visual minimalista */
+        margin: 2px auto 8px auto; /* Aproxima do item pai e afasta do item de baixo */
+        text-align: center;
+        border-radius: 8px;
+    }
+    .dropdown-menu li a {
+        color: var(--branco) !important;
+        font-size: 14px; /* Diminui levemente para criar hierarquia */
+        padding: 4px 10px !important; /* Diminui a altura de cada link interno */
+    }
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
     .grid-animais {
         grid-template-columns: 1fr; /* Coluna única centralizada */
         max-width: 300px; /* Card e imagem do gato menores */
@@ -422,9 +595,6 @@ body {
     .card-acoes .btn-amarelo, .card-acoes .btn-escuro {
         font-size: 13px;
         padding: 10px;
-    }
-    .card-animal:nth-child(n+2) {
-        display: none; /* Esconde os demais gatos, deixando apenas um no mobile */
     }
     .footer-arca {
         font-size: 11px; /* Texto do rodapé reduzido */

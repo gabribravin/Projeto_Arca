@@ -80,7 +80,8 @@
                 padding: 20px;
             }
             .foto-perfil-pet {
-                max-width: 100%;
+                max-width: 320px; /* Limita o tamanho em tablets para não ficar gigante */
+                margin: 0 auto; /* Centraliza a foto no topo antes do texto */
             }
             .grid-atributos-tecnicos {
                 grid-template-columns: repeat(2, 1fr);
@@ -111,7 +112,14 @@
         </button>
         <ul class="menu-links">
             <li><a href="adocao.html" class="active">Adoção</a></li>
-            <li><a href="#">Castração</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Castração</a>
+                <ul class="dropdown-menu">
+                    <li><a href="informacoes.html">Como funciona</a></li>
+                    <li><a href="#">Agendar Castração</a></li>
+                    <li><a href="#">Clínicas credenciadas</a></li>
+                </ul>
+            </li>
             <li><a href="#">Denúncia</a></li>
             <li><a href="#">Resgate</a></li>
             <li><a href="#">Fale Conosco</a></li>
@@ -125,7 +133,7 @@
 
         <section class="card-perfil-completo">
             <div class="foto-perfil-pet">
-                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&auto=format&fit=crop&q=80" alt="Gato André em close">
+                <img src="./imagens/gato.png" alt="Gato André em close">
             </div>
 
             <div class="ficha-tecnica-pet">
@@ -141,6 +149,7 @@
                     <div class="atributo-item">Idade: <strong>06 meses a 07 anos</strong></div>
                     <div class="atributo-item">Raça: <strong>Laranja</strong></div>
                     <div class="atributo-item">Vermifugado: <strong>Sim</strong></div>
+                    <div class="atributo-item">Temperamento: <strong>Carinhoso</strong></div>
                     <div class="atributo-item">Código do animal: <strong>47731</strong></div>
                 </div>
 
@@ -151,7 +160,10 @@
 
                 <hr style="border: 0; border-top: 1px solid var(--borda-card); margin-bottom: 25px;">
 
-                <a href="formulario-adocao.html" class="btn-amarelo btn-central-adocao">Quero adotar</a>
+                <div class="card-botoes-row">
+                    <a href="formulario-adocao.html" class="btn-amarelo btn-central-adocao">Quero adotar</a>
+                    <button class="btn-favorito btn-favorito-grande" aria-label="Favoritar">🤍</button>
+                </div>
             </div>
         </section>
     </main>

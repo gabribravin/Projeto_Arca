@@ -48,6 +48,12 @@
             font-weight: 700;
             color: var(--verde-navbar);
             margin-bottom: 6px;
+            text-decoration: none;
+            display: block;
+            transition: opacity 0.2s ease;
+        }
+        a.solicitacao-header-titulo:hover {
+            opacity: 0.7;
         }
         .solicitacao-data-envio {
             font-size: 14px;
@@ -90,7 +96,14 @@
         </button>
         <ul class="menu-links">
             <li><a href="adocao.html">Adoção</a></li>
-            <li><a href="#">Castração</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Castração</a>
+                <ul class="dropdown-menu">
+                    <li><a href="informacoes.html">Como funciona</a></li>
+                    <li><a href="#">Agendar Castração</a></li>
+                    <li><a href="#">Clínicas credenciadas</a></li>
+                </ul>
+            </li>
             <li><a href="#">Denúncia</a></li>
             <li><a href="#">Resgate</a></li>
             <li><a href="#">Fale Conosco</a></li>
@@ -111,7 +124,7 @@
         <section class="lista-solicitacoes-wrapper">
             
             <article class="card-solicitacao-item">
-                <div class="solicitacao-header-titulo">🐾 Animal: André (Gato - Jovem)</div>
+                <a href="animal.html" class="solicitacao-header-titulo">🐾 Animal: André (Gato - Jovem)</a>
                 <div class="solicitacao-data-envio">📅 Enviado em: 20/05/2026</div>
                 <div class="solicitacao-status-tag">Status: [ ⏳ EM ANÁLISE ]</div>
                 <div class="solicitacao-descricao-status">Sua entrevista está sendo revisada pelos nossos veterinários.</div>
